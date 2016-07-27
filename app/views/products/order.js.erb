@@ -1,0 +1,5 @@
+<% if @order_items.empty? %>
+$("#order_detail").html("<%= j render(:partial => 'error_details') %>");
+<% else %>
+$("#order_detail").html("<%= j render(:partial => 'order_details',:locals => { :order_items => @order_items }) %>");
+<% end %>

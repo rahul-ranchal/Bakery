@@ -1,0 +1,25 @@
+<table border="1px solid" style="width: 100%" class="bordered-table table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 30%;border: solid 1px #ddd;text-align: center">Package Size</th>
+    <th style="width: 30%;border: solid 1px #ddd;text-align: center">Quantity</th>
+    <th style="width: 40%;border: solid 1px #ddd;text-align:center;">Amount</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% order_items.each_with_index do |item,index| %>
+      <tr>
+        <td style="border: solid 1px #ddd;"><%= item[:package_size]%></td>
+        <td style="border: solid 1px #ddd;"><%=  item[:quantity] %></td>
+        <td style="border: solid 1px #ddd;">$<%=  item[:amount] %></td>
+      </tr>
+  <% if order_items.count == (index + 1) %>
+      <tr>
+        <td style="border: solid 1px #ddd;" colspan="2"><b>Total Amount:</b></td>
+        <td style="border: solid 1px #ddd;"><b>$<%= order_items.inject(0){|sum,x| sum + x[:amount] }.round(2) %></b></td>
+      </tr>
+  <% end %>
+  <% end %>
+  </tbody>
+</table>
+<!--<p class="text-align-right">Total Amount: <%#= order_items.inject(0){|sum,x| sum + x[:amount] } %> </p>-->

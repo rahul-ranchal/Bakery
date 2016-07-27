@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row text-center">
+    <b>Product :</b> <%= @product.name %></br>
+    <b>Code:</b> <%= @product.code %>
+    <ul>
+      <% @product.packages.each do |package| %>
+          <li>Pack:<%= package.size %>@$<%= package.price %></li>
+      <% end %>
+    </ul>
+    <%= form_for "order", url: product_order_path(@product), remote: :true do |f| %>
+        <p> Ouantity: <%= f.number_field :quantity, required: true %></p>
+        <%= f.submit "Place An Order", :class => "btn btn-default btn-large" %>
+        <%= link_to 'Back', products_path, :class => "btn btn-default btn-large" %>
+    <% end %>
+    <div id="order_detail"></div>
+  </div>
+</div>

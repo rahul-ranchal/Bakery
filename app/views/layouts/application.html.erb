@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bakery</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</head>
+
+<body style="margin: 0 auto">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <a class="navbar-brand text-center" href="#" style="width: 100%">Bakery</a>
+  </div>
+</nav>
+
+<%= yield %>
+
+</body>
+<footer class="footer navbar-fixed-bottom">Copyright ©Bakery.com</footer>
+</html>

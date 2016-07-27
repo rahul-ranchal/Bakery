@@ -1,0 +1,41 @@
+<!--<p id="notice"><%= notice %></p>-->
+<div class="container">
+  <div class="padding-top padding-bottom" style="margin-top:10%">
+    <div class="row">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-info" style="text-align: center; margin-top:4%"><%= value %></div>
+      <% end %>
+      <div class="row" style="padding: 0px">
+        <div class="col-md-4" style="width: 100%;">
+          <h2 style="text-align: center; padding-bottom: 0px">Products</h2>
+
+        </div>
+      </div>
+      <% if @products.length > 0 %>
+          <table border="1px solid" style="width: 100%" class="bordered-table table table-striped">
+            <thead>
+            <tr>
+              <th style="width: 30%;border: solid 1px #ddd;text-align: center">NAME</th>
+              <th style="width: 30%;border: solid 1px #ddd;text-align: center">CODE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @products.each do |product| %>
+                <tr>
+                  <td style="border: solid 1px #ddd;"><%= link_to product.name, product_path(product), :class =>"skyblue_link" %></td>
+                  <td style="border: solid 1px #ddd;"><%=  product.code %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+      <% else %><br/>
+          <h2>No Company Available</h2>
+      <% end %>
+      <br>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
